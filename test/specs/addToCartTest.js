@@ -1,4 +1,6 @@
 import HomePage from '../page_objects/homePage';
+import ItemPage from '../page_objects/itemPage'
+import CartPage from '../page_objects/cartPage';
 
 describe('Ebay Test Add to Cart', () => {
 
@@ -17,10 +19,10 @@ describe('Ebay Test Add to Cart', () => {
 
   it('Add first Item from Search results and Validate Cart', () => {
     HomePage.firstItem.click()
-    itemsRequested.push(HomePage.itemTitle.getText())
-    HomePage.addToCartButton.click()
-    HomePage.goToCartButton.click()
-    itemsInCart.push(HomePage.itemTitleInCart.getText())
+    itemsRequested.push(ItemPage.itemTitle.getText())
+    ItemPage.addToCartButton.click()
+    ItemPage.goToCartButton.click()
+    itemsInCart.push(CartPage.itemTitleInCart.getText())
     let itemsPresent = (itemsRequested.reverse()).some(r => itemsInCart.includes(r))
     expect(itemsPresent).to.equal(true, 'Item was not Added to Cart')
   });
@@ -34,10 +36,10 @@ describe('Ebay Test Add to Cart', () => {
 
   it('Add first Item from Search results and Validate Cart', () => {
     HomePage.firstItem.click()
-    itemsRequested.push(HomePage.itemTitle.getText())
-    HomePage.addToCartButton.click()
-    HomePage.goToCartButton.click()
-    itemsInCart.push(HomePage.itemTitleInCart.getText())
+    itemsRequested.push(ItemPage.itemTitle.getText())
+    ItemPage.addToCartButton.click()
+    ItemPage.goToCartButton.click()
+    itemsInCart.push(CartPage.itemTitleInCart.getText())
     let itemsPresent = (itemsRequested.reverse()).some(r => itemsInCart.includes(r))
     expect(itemsPresent).to.equal(true, 'Item was not Added to Cart')
   });
