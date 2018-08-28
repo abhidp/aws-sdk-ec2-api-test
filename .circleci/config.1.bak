@@ -33,4 +33,14 @@ jobs:
       
       - run:
           name: Test 
-          command: npm run web-ci
+          command: npm run web
+
+      - run:
+          name: Tech chromedriver
+          command: node test_chromedriver.js
+
+      - run: mv selenium.log selenium_log.txt
+
+      - store_artifacts:
+          path: selenium_log.txt
+          destination: selenium
