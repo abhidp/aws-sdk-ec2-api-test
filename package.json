@@ -4,12 +4,18 @@
   "description": "DR Test Q1",
   "main": "index.js",
   "scripts": {
-    "web": "node_modules/.bin/wdio wdio.conf.js",
+    "web": "node_modules/.bin/wdio wdio.conf.js --spec ./test/web/specs/addToCart_Test.js",
+    "web-scale": "node_modules/.bin/wdio wdio.conf.js --spec ./test/web/specs/addToCart_ScalableTest.js",
     "api": "mocha test/api/specs/*Test.js --opts test/api/config/mocha.opts"
   },
   "keywords": [
     "DR",
-    "ebay"
+    "ebay",
+    "AWS",
+    "API",
+    "web",
+    "wdio",
+    "webdriverio"
   ],
   "repository": {
     "type": "git",

@@ -1,5 +1,4 @@
 exports.config = {
-
     //
     // ==================
     // Specify Test Files
@@ -10,7 +9,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/web/specs/addToCart_Test.js'
+        './test/web/specs/*Test.js'
     ],
     // Patterns to exclude.
     exclude: [

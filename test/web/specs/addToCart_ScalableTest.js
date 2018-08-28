@@ -12,7 +12,7 @@ describe('Scalable Test for verifying Add items to Cart', () => {
     */
     var noOfItems = 3
     addItemsToCart(noOfItems)
-    expect(shoppingCartSummaryMsg()).to.include(noOfItems, 'Incorrect Summary Msg in Shopping Cart')
+    expect(shoppingCartSummaryMsg()).to.equal(noOfItems, 'Incorrect Summary Msg in Shopping Cart')
     expect(verifyItemsAddedToCart()).to.equal(true, 'Items were not Added to Cart')
   })
 })

@@ -1,5 +1,5 @@
 var expect = require('expect.js')
-import { createEC2, waitForInstanceStatus, terminateEC2Instance } from '../actions/EC3_actions';
+import { createEC2, waitForInstanceStatus, terminateEC2Instance } from '../actions/EC2_actions'
 
 describe('CRUD Test for AWS EC2 Instance', async () => {
   var status
