@@ -3,6 +3,7 @@
 
 // ABOUT THIS NODE.JS SAMPLE: This sample is part of the SDK for JavaScript Developer Guide topic at
 // https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide//ec2-example-creating-an-instance.html
+
 // Load the AWS SDK for Node.js
 require('dotenv').config();
 var AWS = require('aws-sdk');
@@ -38,7 +39,6 @@ export async function createEC2() {
         })
   })
 }
-
 
 export async function getKeyPairName() {
   var descParams = {
