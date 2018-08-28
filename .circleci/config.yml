@@ -1,17 +1,74 @@
+CircleCI Home Product  Pricing Enterprise Developers  Company Contact Us Support  Log In  
+CircleCI Blog
+Engineering
+Integrations
+Events
+News
+Culture
+All
+Follow us
+RSS  Facebook  Twitter  GitHub  LinkedIn
+Without Logs, Did it Actually Happen? Logging Selenium Browser Testing on CircleCI 2.0
+Share on Share on Twitter  Share on Facebook  Share on Reddit  Share on Hacker News
+One issue that we see a lot in support here at CircleCI is flaky web browser tests. Since most browser automation frameworks use Selenium under the hood, I decided to sit down and see what was needed to get better logs of the test process to aid customers in troubleshooting their hung and failed builds.
+
+None of the webdriver browser testing frameworks appear to have very good logging when things go wrong. It seems that at best you will get a failed test due to the test not finding an element you know is on the page, and at worst the test sits silently until it times out.
+
+Logging is needed to know what is going on. Is the page loading? Has the webdriver failed? Can it not find the browser? Is it just really, really slow? Without logging you are running blind, and even with the ability to SSH into a running build there is no easy way to see what is happening.
+
+CircleCI provides a large number of Docker convenience images for you to use on 2.0 to get up and running quickly. Since I use NodeJS the most I went with the circleci/node:6.11.2-browsers image so I would not have to install Chrome and Firefox separately.
+
+I decided I would use WebdriverIO to manage my testing. I created their default hello world type project and sent it to CircleCI. It says it passed, but it didn’t return the page title. How can this be? Turns out the images don’t ship with Selenium, since not everyone needs them. However, WebdriverIO decided to not tell me this. No errors, no warning, nothing. This is why we need logs!
+
+I added steps to install Selenium and ran another build. The build came back happy again, but this time I had logs. The Start Selenium steps says that geckodriver could not be found. The logs are already helping us troubleshoot. Let’s download geckodriver, the webdriver for automating Firefox testing.
+
+Expanding the test steps to view the log takes time though. CircleCI provides the ability to specify and upload build artifacts, so let’s take advantage of that. We also want to add Chrome tests as well. It looks like everything works great, and we have a log showing the steps taken to run the tests on the browsers.
+
+Here’s what my CircleCI 2.0 .circleci/config.yml file looks like at this point:
+
 version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10.1-browsers
+      - image: circleci/node:6.11.2-browsers
+      
     steps:
       - checkout
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+
       - run: yarn install
+
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn run web
+        
+      - run:
+          name: Download Selenium and geckodriver
+          command: |
+            curl -O http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar
+            curl -L https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz | tar xz
+            chmod +x geckodriver
+      - run:
+          name: Start Selenium
+          command: |
+            java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.0.1.jar -log selenium.log
+          background: true
+      
+      - run:
+          name: Test 
+          command: npm run web
+
+      - run:
+          name: Tech chromedriver
+          command: node test_chromedriver.js
+
+      - run: mv selenium.log selenium_log.txt
+
+      - store_artifacts:
+          path: selenium_log.txt
+          destination: selenium
