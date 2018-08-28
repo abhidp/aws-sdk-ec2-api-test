@@ -55,13 +55,7 @@ exports.config = {
     },
     {
         browserName: 'firefox',
-        'moz:firefoxOptions': {
-            args: [
-                '--disable-infobars',
-                '--incognito',
-                '--ignore-certificate-errors',
-                '--disable-gpu']
-        }
+
     }
     ],
     //
