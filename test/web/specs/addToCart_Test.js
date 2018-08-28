@@ -13,7 +13,6 @@ describe('Test for verifying Add items to Cart', () => {
   it('Search for First Item and Validate search results', () => {
     HomePage.searchInput.setValue('swiss army knife')
     HomePage.searchButton.click()
-    // HomePage.itemListings.waitForEnabled()
     HomePage.buyItNowRadioButton.click()
     expect(HomePage.itemListings.value.length).to.be.at.least(1, 'No Items Returned')
   })
@@ -33,7 +32,6 @@ describe('Test for verifying Add items to Cart', () => {
   it('Search for Second Item and Validate search results', () => {
     HomePage.searchInput.setValue('backpack')
     HomePage.searchButton.click()
-    // HomePage.itemListings.waitForEnabled()
     HomePage.buyItNowRadioButton.click()
     expect(HomePage.itemListings.value.length).to.be.at.least(1, 'No Items Returned')
   })

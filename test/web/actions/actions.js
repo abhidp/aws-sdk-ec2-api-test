@@ -11,6 +11,7 @@ export function openApp() {
 export function searchItem(itemName) {
   HomePage.searchInput.setValue(itemName)
   HomePage.searchButton.click()
+  // browser.pause(5000)
   HomePage.buyItNowRadioButton.click()
 }
 

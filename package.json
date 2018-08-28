@@ -7,7 +7,8 @@
     "web": "node_modules/.bin/wdio wdio.conf.js --spec ./test/web/specs/addToCart_Test.js",
     "web-scale": "node_modules/.bin/wdio wdio.conf.js --spec ./test/web/specs/addToCart_ScalableTest.js",
     "api": "mocha test/api/specs/*Test.js --opts test/api/config/mocha.opts",
-    "web-ci": "node_modules/.bin/wdio wdio.ci.conf.js --spec ./test/web/specs/addToCart_Test.js"
+    "web-ci": "node_modules/.bin/wdio wdio.ci.conf.js --spec ./test/web/specs/addToCart_Test.js",
+    "web-ci-scale": "node_modules/.bin/wdio wdio.ci.conf.js --spec ./test/web/specs/addToCart_ScalableTest.js"
   },
   "keywords": [
     "DR",
