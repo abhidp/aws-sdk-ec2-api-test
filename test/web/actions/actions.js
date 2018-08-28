@@ -11,14 +11,16 @@ export function openApp() {
 export function searchItem(itemName) {
   HomePage.searchInput.setValue(itemName)
   HomePage.searchButton.click()
-  // browser.pause(5000)
-  HomePage.buyItNowRadioButton.click()
+  HomePage.buyItNowButton.click()
 }
 
 export function addToCart() {
   HomePage.firstItem.click()
   itemsRequested.push(ItemPage.itemTitle.getText())
   ItemPage.addToCartButton.click()
+  ItemPage.goToCartButton.waitForExist()
+  ItemPage.goToCartButton.waitForVisible()
+  ItemPage.goToCartButton.waitForEnabled()
   ItemPage.goToCartButton.click()
   itemsInCart.push(CartPage.itemTitleInCart.getText())
 }
