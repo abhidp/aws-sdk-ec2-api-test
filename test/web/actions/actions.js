@@ -44,4 +44,3 @@ export function shoppingCartSummaryMsg() {
   var cartMsg = CartPage.shoppingCartTotalItems.getText()
   return Number(cartMsg.match(/\d+/)[0])
 }
-
