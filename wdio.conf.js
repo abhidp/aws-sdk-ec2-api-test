@@ -10,7 +10,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/addToCart_Test.js'
+        './test/web/specs/addToCart_Test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -45,16 +45,26 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        // chromeOptions: {
-        //     args: [
-        //         '--start-maximized',
-        //         '--disable-infobars',
-        //         '--incognito',
-        //         '--ignore-certificate-errors',
-        //         '--disable-gpu'],
-        // }
+        chromeOptions: {
+            args: [
+                '--start-maximized',
+                '--disable-infobars',
+                '--incognito',
+                '--ignore-certificate-errors',
+                '--disable-gpu'],
+        }
     },
-    { browserName: 'firefox' }],
+    {
+        browserName: 'firefox',
+        'moz:firefoxOptions': {
+            args: [
+                '--disable-infobars',
+                '--incognito',
+                '--ignore-certificate-errors',
+                '--disable-gpu']
+        }
+    }
+    ],
     //
     // ===================
     // Test Configurations

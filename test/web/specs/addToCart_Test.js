@@ -14,11 +14,10 @@ describe('Test for verifying Add items to Cart', () => {
     HomePage.searchInput.setValue('swiss army knife')
     HomePage.searchButton.click()
     HomePage.buyItNowRadioButton.click()
-    browser.pause(5000)
     expect(HomePage.itemListings.value.length).to.be.at.least(1, 'No Items Returned')
   })
 
-  xit('Add first Item from Search results and Validate Cart', () => {
+  it('Add first Item from Search results and Validate Cart', () => {
     HomePage.firstItem.click()
     itemsRequested.push(ItemPage.itemTitle.getText())
     itemCounter++
@@ -30,14 +29,14 @@ describe('Test for verifying Add items to Cart', () => {
     expect(itemsPresent).to.equal(true, 'Item was not Added to Cart')
   })
 
-  xit('Search for Second Item and Validate search results', () => {
+  it('Search for Second Item and Validate search results', () => {
     HomePage.searchInput.setValue('backpack')
     HomePage.searchButton.click()
     HomePage.buyItNowRadioButton.click()
     expect(HomePage.itemListings.value.length).to.be.at.least(1, 'No Items Returned')
   })
 
-  xit('Add first Item from Search results and Validate Cart', () => {
+  it('Add first Item from Search results and Validate Cart', () => {
     HomePage.firstItem.click()
     itemsRequested.push(ItemPage.itemTitle.getText())
     itemCounter++
