@@ -8,7 +8,7 @@ export default new class HomePage extends Page {
   get itemListings() {
     return browser.elements("//li[contains(@id,'srp-river-results-listing')]")
   }
-  get firstItem() { return browser.element("//li[contains(@id,'srp-river-results-listing')][1]//div[@class='s-item__image']") }
+  get firstItem() { return browser.element("//li[contains(@id,'srp-river-results-listing')][1]//a[@class='s-item__link']") }
 
   open() {
     super.open('/');
