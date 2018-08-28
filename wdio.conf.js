@@ -10,7 +10,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/*Test.js'
+        './test/specs/addToCart_Test.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -45,15 +45,16 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        chromeOptions: {
-            args: [
-                '--start-maximized',
-                '--disable-infobars',
-                '--incognito',
-                '--ignore-certificate-errors',
-                '--disable-gpu'],
-        }
-    }],
+        // chromeOptions: {
+        //     args: [
+        //         '--start-maximized',
+        //         '--disable-infobars',
+        //         '--incognito',
+        //         '--ignore-certificate-errors',
+        //         '--disable-gpu'],
+        // }
+    },
+    { browserName: 'firefox' }],
     //
     // ===================
     // Test Configurations
@@ -79,7 +80,7 @@ exports.config = {
     bail: 0,
     //
     // Saves a screenshot to a given path if a command fails.
-    screenshotPath: './errorShots/',
+    // screenshotPath: './errorShots/',
     //
     // Set a base URL in order to shorten url command calls. If your `url` parameter starts
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
@@ -96,25 +97,7 @@ exports.config = {
     //
     // Default request retries count
     connectionRetryCount: 3,
-    //
-    // Initialize the browser instance with a WebdriverIO plugin. The object should have the
-    // plugin name as key and the desired plugin options as properties. Make sure you have
-    // the plugin installed before running any tests. The following plugins are currently
-    // available:
-    // WebdriverCSS: https://github.com/webdriverio/webdrivercss
-    // WebdriverRTC: https://github.com/webdriverio/webdriverrtc
-    // Browserevent: https://github.com/webdriverio/browserevent
-    // plugins: {
-    //     webdrivercss: {
-    //         screenshotRoot: 'my-shots',
-    //         failedComparisonsRoot: 'diffs',
-    //         misMatchTolerance: 0.05,
-    //         screenWidth: [320,480,640,1024]
-    //     },
-    //     webdriverrtc: {},
-    //     browserevent: {}
-    // },
-    //
+
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
@@ -140,7 +123,7 @@ exports.config = {
         ui: 'bdd',
         reporter: 'spec',
         compilers: ['js:babel-register'],
-        timeout: 60000
+        timeout: 600000
     },
     //
     // =====
