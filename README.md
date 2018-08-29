@@ -33,7 +33,8 @@ There are two different tests inside the /test/web/specs folder, both test the s
 What the Test does: 
 
 * the `addItemsToCart(n)` function can be called in the test which takes a parameter `n` where `n` is the no. of products you want to add to you shopping cart. 
-* the above function reads items from you shopping list. add items to your shopping list which is present under the root folder `MyShoppingList.json`. This list can contain 10 items but if you want to add any 3 of them you can pass that as a parameter in `addItemsToCart(n)`
+* the above function reads items from you shopping list. add items to your shopping list which is present under the root folder `MyShoppingList.json`. This list can contain 10 items but if you want to only 3, you can pass that as a parameter in `addItemsToCart(n)` and first 3 items from the list will get added.
+* this test does the job only in one test function as compared to 2 or more test functions(depending on no. of items, whichever is higher) in the previous test
 * ** Please DO NOT add expensive electronic itmes to your shopping list like iPhoneX or Samsung 4k UHD TV as adding these items to cart opens up a Finance/Repayment plan or Extended warranty window which is not handled in the test and tests will be running against an irrelevant scenario **
 
 
