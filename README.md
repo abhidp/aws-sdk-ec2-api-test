@@ -33,7 +33,7 @@ What the Test does:
 * the `addItemsToCart(n)` function can be called in the test which takes a parameter `n` where `n` is the no. of products you want to add to you shopping cart. 
 * the above function reads items from you shopping list. add items to your shopping list which is present under the root folder `MyShoppingList.json`. This list can contain 10 items but if you want to only 3, you can pass that as a parameter in `addItemsToCart(n)` and first 3 items from the list will get added.
 * this test does the job only in one test function as compared to 2 or more test functions(depending on no. of items, whichever is higher) in the previous test
-* ** Please DO NOT add expensive electronic itmes to your shopping list like iPhoneX or Samsung 4k UHD TV as adding these items to cart opens up a Finance/Repayment plan or Extended warranty window which is not handled in the test and tests will be running against an irrelevant scenario **
+* ** Please DO NOT add expensive electronic items to your shopping list like iPhoneX or Samsung 4k UHD TV as adding these items to cart opens up a Finance/Repayment plan or Extended warranty window which is not handled in the test and tests will be running against an irrelevant scenario **
 
 > A Live GIF recording of Test execution can be seen here :
 * [UI Tests Executing in Parallel in Local Machine](https://drive.google.com/file/d/1Qbg8w5DgFX6p9_qHRIwtM3xW5srAeDdo/view)
@@ -64,8 +64,6 @@ Step 2 - Request Teardown of the EC2 Instance and Validate its Terminated
 Pre-Reqs:
 * To run this you must have a [Access Key ID and Secret Access Key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)
 Add those keys/values to the `.env` file(explained later). Also your userRole should have `AmazonEC2FullAccess` permission
-
-> If you do not have the credentials, request one from  [me](mailto:daspatnaik@gmail.com)
 
 * Add ImageId, Region, API Version and Instance Type: ** Please use [Free Tier Assets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html) to avoid surprises in you next Credit-Card bill **
 
@@ -109,7 +107,7 @@ Piplelines are defined in `.circleci/config.yml`
 * Generate Test Execution report and put it in AWS S3 bucket to be accessed by interested parties
 * Add plugin to take screenshot on failure and attach it to above report
 * Create custom CI image with stable Selenium and browser versions to avoid test failures
-* Bail out build on test failure to save allocated buld time
+* Bail out build on test failure to save allocated build time
 
 ##### API
 * Store AWS security credentials in S3 Bucket 
