@@ -54,12 +54,7 @@ exports.config = {
             ],
 
         }
-    },
-    {
-        browserName: 'firefox',
-
-    }
-    ],
+    }],
     //
     // ===================
     // Test Configurations
