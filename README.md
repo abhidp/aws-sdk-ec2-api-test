@@ -28,11 +28,11 @@ There are two different tests inside the /test/web/specs folder, both test the s
 ```addToCart_ScalableTest``` (Highly Scalabe) This test does the job at hand and goes beyond. Logic for common actions like signIn, signOut, addProductToCart, payByVisa can be abstracted into action/helper functions elsewhere, far away from the actual test. Then, `n` tests can call these actions `n` times for adding `n` products to cart without repeating code logic within the test.
 
 
-What the Test does: 
+Further explanation about this scalable test: 
 
-* the `addItemsToCart(n)` function can be called in the test which takes a parameter `n` where `n` is the no. of products you want to add to you shopping cart. 
-* the above function reads items from you shopping list. add items to your shopping list which is present under the root folder `MyShoppingList.json`. This list can contain 10 items but if you want to only 3, you can pass that as a parameter in `addItemsToCart(n)` and first 3 items from the list will get added.
-* this test does the job only in one test function as compared to 2 or more test functions(depending on no. of items, whichever is higher) in the previous test
+* the `addItemsToCart(n)` function can be called in the test which takes a parameter `n` where `n` is the no. of products you want to add to your shopping cart. 
+* the above function reads items from your shopping list which is present under the root folder `MyShoppingList.json`. In practice, this list can contain `n` items. Let's say the list has 100 items, but if you want to only 3, you can pass that as a parameter in `addItemsToCart(3)` and first 3 items from the list will get added. If you dont pass any parameter and just call `addItemsToCart()` then all 100 items will be added to your cart.
+* this test does the job only in one test function as compared to 2 or more test functions(depending on no. of items, whichever is higher) in the previous non-scalable test
 * ** Please DO NOT add expensive electronic items to your shopping list like iPhoneX or Samsung 4k UHD TV as adding these items to cart opens up a Finance/Repayment plan or Extended warranty window which is not handled in the test and tests will be running against an irrelevant scenario **
 
 > A Live GIF recording of Test execution can be seen here :
