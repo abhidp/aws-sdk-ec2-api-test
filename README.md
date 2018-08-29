@@ -35,6 +35,15 @@ What the Test does:
 * this test does the job only in one test function as compared to 2 or more test functions(depending on no. of items, whichever is higher) in the previous test
 * ** Please DO NOT add expensive electronic itmes to your shopping list like iPhoneX or Samsung 4k UHD TV as adding these items to cart opens up a Finance/Repayment plan or Extended warranty window which is not handled in the test and tests will be running against an irrelevant scenario **
 
+> A Live GIF recording of Test execution can be seen here :
+* [UI Tests Executing in Parallel in Local Machine](https://drive.google.com/file/d/1Qbg8w5DgFX6p9_qHRIwtM3xW5srAeDdo/view)
+
+* [Same UI Test running on CircleCI](https://drive.google.com/file/d/19kHaDauCb-HkbYdS6rzqvJTzxE77DxCU/view)
+* [CircleCI Build History](https://circleci.com/gh/abhimassive/dr-litmos-test/tree/master)
+  
+_Caveat: eBay renders the same page differently for different browsers when acccessed from different geo locations because of which the same test which passes in FireFox locally, fails in CI as their servers could be located in some other region.(You can see the logs for Firefox in the failed history Builds). Other reason could be, the Docker image used for this build has different versions of Selenium and browser driver installed. This needs to be investigated further.
+Hence, at the moment CI is setup only to run in Chrome browser._
+
 
 
 ## API Tests 
@@ -50,6 +59,7 @@ Test Scenario:
 Step 1 - Request an EC2 Instance and Validate its Up and Running
 Step 2 - Request Teardown of the EC2 Instance and Validate its Terminated
 ```
+[A Live GIF recording of the above can be seen here](https://drive.google.com/file/d/1JPtMeRDMuRSiPbgOVZKDOvm_Ar2zRPtH/view)
 
 Pre-Reqs:
 * To run this you must have a [Access Key ID and Secret Access Key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html)
@@ -64,6 +74,8 @@ What the Test does:
 * Checks everytime if a Key Pair exists, if exists then use it for EC2 creation, if doesn't then create one on the fly and use it
 * Send request for EC2 Instance creation and wait until status of the instance is `running`. Validate this status with help of Chai assertions
 * Send request for EC2 Instance termination and wait until status is `terminated`. Validate this status with help of Chai assertions
+
+_Note: The above test is not set up to run in CI as I have a public CircleCI account and dont't wanna risk exposing my AWS access key-id credential to the www_
 
 
 
@@ -90,8 +102,6 @@ Piplelines are defined in `.circleci/config.yml`
 - [ ] UI - Run Scalable Test  : `npm run web-scale`
 
 - [ ] API -  Run EC2 Test : `npm run api`
-
-Live Test Recordings: GIFs for above test runs are uploaded in [Google Drive](https://drive.google.com/drive/folders/1BRJ1W4DSs78jsClet5YGHs_heUlVeKYV?usp=sharing)
 
 
 @Author [Abhi](mailto:daspatnaik@gmail.com)
