@@ -28,8 +28,6 @@ There are two different tests inside the /test/web/specs folder, both test the s
 ```addToCart_ScalableTest``` (Highly Scalabe) This test does the job at hand and goes beyond. Logic for common actions like signIn, signOut, addProductToCart, payByVisa can be abstracted into action/helper functions elsewhere, far away from the actual test. Then, `n` tests can call these actions `n` times for adding `n` products to cart without repeating code logic within the test.
 
 
-
-
 What the Test does: 
 
 * the `addItemsToCart(n)` function can be called in the test which takes a parameter `n` where `n` is the no. of products you want to add to you shopping cart. 
@@ -92,5 +90,10 @@ Piplelines are defined in `.circleci/config.yml`
 - [ ] UI - Run Scalable Test  : `npm run web-scale`
 
 - [ ] API -  Run EC2 Test : `npm run api`
+
+Live Test Recordings: GIFs for above test runs are uploaded in [Google Drive](https://drive.google.com/drive/folders/1BRJ1W4DSs78jsClet5YGHs_heUlVeKYV?usp=sharing)
+
+
+@Author [Abhi](mailto:daspatnaik@gmail.com)
 
 
