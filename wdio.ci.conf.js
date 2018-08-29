@@ -50,8 +50,7 @@ exports.config = {
                 '--disable-infobars',
                 '--incognito',
                 '--ignore-certificate-errors',
-                '--disable-gpu',
-                '--headless',
+                '--disable-gpu'
             ],
 
         }
