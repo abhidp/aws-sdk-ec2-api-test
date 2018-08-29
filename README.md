@@ -104,6 +104,18 @@ Piplelines are defined in `.circleci/config.yml`
 - [ ] API -  Run EC2 Test : `npm run api`
 
 
+### TODO:
+##### WEB
+* Generate Test Execution report and put it in AWS S3 bucket to be accessed by interested parties
+* Add plugin to take screenshot on failure and attach it to above report
+* Create custom CI image with stable Selenium and browser versions to avoid test failures
+* Bail out build on test failure to save allocated buld time
+
+##### API
+* Store AWS security credentials in S3 Bucket 
+* Add pre-step in CircleCI to pull secrets from S3 before running AWS API tests
+
+
 @Author [Abhi](mailto:daspatnaik@gmail.com)
 
 
