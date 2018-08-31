@@ -68,12 +68,12 @@ Add those keys/values to the `.env` file(explained later). Also your userRole sh
 * Add ImageId, Region, API Version and Instance Type: ** Please use [Free Tier Assets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html) to avoid surprises in you next Credit-Card bill **
 
 What the Test does:
-```EC2_CRUD_Test``` Like UI tests, this API tests takes help of helper/action functions to create test the given scenario
+```EC2_CRUD_Test``` Like UI tests, this API tests takes help of helper/action functions to test the above scenario
 * Checks everytime if a Key Pair exists, if exists then use it for EC2 creation, if doesn't then create one on the fly and use it
 * Send request for EC2 Instance creation and wait until status of the instance is `running`. Validate this status with help of Chai assertions
 * Send request for EC2 Instance termination and wait until status is `terminated`. Validate this status with help of Chai assertions
 
-_Note: The above test is not set up to run in CI as I have a public CircleCI account and dont't wanna risk exposing my AWS access key-id credential to the www_
+_Note: The above test is not set up to run in CI as I have a public CircleCI account and don't wanna risk exposing my AWS access key-id credential to the www_
 
 
 
