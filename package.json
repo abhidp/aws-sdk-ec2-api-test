@@ -1,14 +1,10 @@
 {
   "name": "ebay",
   "version": "1.0.0",
-  "description": "DR Test Q1",
+  "description": "aws-sdk-ec2-api-test",
   "main": "index.js",
   "scripts": {
-    "web": "node_modules/.bin/wdio wdio.conf.js --spec ./test/web/specs/addToCart_Test.js",
-    "web-scale": "node_modules/.bin/wdio wdio.conf.js --spec ./test/web/specs/addToCart_ScalableTest.js",
-    "api": "mocha test/api/specs/*Test.js --opts test/api/config/mocha.opts",
-    "web-ci": "node_modules/.bin/wdio wdio.ci.conf.js --spec ./test/web/specs/addToCart_Test.js",
-    "web-ci-scale": "node_modules/.bin/wdio wdio.ci.conf.js --spec ./test/web/specs/addToCart_ScalableTest.js"
+    "api": "mocha test/api/specs/*Test.js --opts test/api/config/mocha.opts"
   },
   "keywords": [
     "DR",
@@ -39,17 +35,13 @@
     "expect.js": "^0.3.1",
     "npm": "^6.0.0",
     "selenium-standalone": "^6.15.2",
-    "uuid": "^3.3.2",
-    "wdio-selenium-standalone-service": "0.0.10",
-    "webdriverio": "^4.12.0"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "mocha": "^5.0.5",
-    "wdio-mocha-framework": "^0.5.13",
-    "wdio-spec-reporter": "^0.1.4"
+    "mocha": "^5.0.5"
   }
 }

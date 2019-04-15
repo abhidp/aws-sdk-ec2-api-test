@@ -2,49 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/abhimassive/dr-litmos-test/tree/master.svg?style=svg)](https://circleci.com/gh/abhimassive/dr-litmos-test/tree/master)
 
-This repo contains both Front-End UI and Back-End API Tests
-
-## UI Tests : 
-
-Located under `test/web/specs`
-
-Front End tests use the [WebdriverIO](http://webdriver.io/) library. This library is a [Webdriver](https://w3c.github.io/webdriver/webdriver-spec.html) (browser automation) module for [Node.JS](https://nodejs.org/en/). It makes possible to write super easy [Selenium](https://en.wikipedia.org/wiki/Selenium_(software)) tests in [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) test framework.
-
-Tests are written and executed using [Mocha](https://mochajs.org/) and
-assertions are handled using [Chai](http://www.chaijs.com/)
-
-Test Scenario:
-
-```
-Step 1 - Add 2 different products from eBay
-Step 2 - Validate products are added to the Cart
-```
-A single test runs parallely in two different browsers: Chrome and Firefox
-
-There are two different tests inside the /test/web/specs folder, both test the same scenario, but one is highly scalable and the other is not. Details as below:
-
-```addToCart_Test``` (Not Scalable) This test does the job of adding 2 different products but as you can see the tests are a bit cluttered and code (click and setValue) for adding product to the cart are repeated twice within the same test which violates the [DRY principle](https://web-techno.net/dry-principle-explained/) If the requirement was to add 5 products then you have to write the same logic 5 times and so on.
-
-```addToCart_ScalableTest``` (Highly Scalabe) This test does the job at hand and goes beyond. Logic for common actions like signIn, signOut, addProductToCart, payByVisa can be abstracted into action/helper functions elsewhere, far away from the actual test. Then, `n` tests can call these actions `n` times for adding `n` products to cart without repeating code logic within the test.
-
-
-Further explanation about this scalable test: 
-
-* the `addItemsToCart(n)` function can be called in the test which takes a parameter `n` where `n` is the no. of products you want to add to your shopping cart. 
-* the above function reads items from your shopping list which is present under the root folder `MyShoppingList.json`. In practice, this list can contain `n` items. Let's say the list has 100 items, but if you want to only 3, you can pass that as a parameter in `addItemsToCart(3)` and first 3 items from the list will get added. If you dont pass any parameter and just call `addItemsToCart()` then all 100 items will be added to your cart.
-* this test does the job only in one test function as compared to 2 or more test functions(depending on no. of items, whichever is higher) in the previous non-scalable test
-* ** Please DO NOT add expensive electronic items to your shopping list like iPhoneX or Samsung 4k UHD TV as adding these items to cart opens up a Finance/Repayment plan or Extended warranty window which is not handled in the test and tests will be running against an irrelevant scenario **
-
-> A Live GIF recording of Test execution can be seen here :
-* [UI Tests Executing in Parallel in Local Machine](https://drive.google.com/file/d/1Qbg8w5DgFX6p9_qHRIwtM3xW5srAeDdo/view)
-
-* [Same UI Test running on CircleCI](https://drive.google.com/file/d/19kHaDauCb-HkbYdS6rzqvJTzxE77DxCU/view)
-* [CircleCI Build History](https://circleci.com/gh/abhimassive/dr-litmos-test/tree/master)
-  
-_Caveat: eBay renders the same page differently for different browsers when acccessed from different geo locations because of which the same test which passes in FireFox locally, fails in CI as their servers could be located in some other region.(You can see the logs for Firefox in the failed history Builds). Other reason could be, the Docker image used for this build has different versions of Selenium and browser driver installed. This needs to be investigated further.
-Hence, at the moment CI is setup only to run in Chrome browser._
-
-
+This repo contains tests written in JavaScript ES6 with Mocha BDD framework
 
 ## API Tests 
 
