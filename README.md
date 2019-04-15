@@ -1,6 +1,4 @@
-# dr-litmos-test
-
-[![CircleCI](https://circleci.com/gh/abhimassive/dr-litmos-test/tree/master.svg?style=svg)](https://circleci.com/gh/abhimassive/dr-litmos-test/tree/master)
+# aws-sdk-ec2-api-test
 
 This repo contains tests written in JavaScript ES6 with Mocha BDD framework
 
@@ -35,12 +33,6 @@ _Note: The above test is not set up to run in CI as I have a public CircleCI acc
 
 
 
-## CI/CD
-[CircleCI](https://circleci.com/product/) is setup to track any commits to the master branch of this repo and run test on every commit
-
-Piplelines are defined in `.circleci/config.yml`
-
-
 ## Getting Started
 
 ### Pre-Req
@@ -53,19 +45,10 @@ Piplelines are defined in `.circleci/config.yml`
 
 - [ ] Create a `.env` file in you root directory. Paste contents from `.env-sample` to `.env` and populate the values for each key
 
-- [ ] UI - Run Non-scalable Test : `npm run web`
-
-- [ ] UI - Run Scalable Test  : `npm run web-scale`
-
 - [ ] API -  Run EC2 Test : `npm run api`
 
 
 ### TODO:
-##### WEB
-* Generate Test Execution report and put it in AWS S3 bucket to be accessed by interested parties
-* Add plugin to take screenshot on failure and attach it to above report
-* Create custom CI image with stable Selenium and browser versions to avoid test failures
-* Bail out build on test failure to save allocated build time
 
 ##### API
 * Store AWS security credentials in S3 Bucket 
